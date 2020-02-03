@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import cloneDeep from "clone-deep";
 
 import Subject from './Components/Subject';
 
@@ -30,70 +31,40 @@ class App extends Component {
   }
 
   clickSubjectHandler = name => {
-    this.state.subject.forEach(element => {
-      if (element.subjectName === name){
-        const i = this.state.subject.indexOf(element);
-        this.state.subject[i].view = !this.state.subject[i].view;
-        this.setState(this.state.subject);
-      }
-    })
+    const subject = cloneDeep(this.state.subject);
+    const subj = subject.find(s => s.subjectName === name);
+
+    if(subj){
+      subj.view = !subj.view;
+    }
+
+    this.setState({subject});
   }
 
   clickGradeHandler = (searchSubjectName, searchStudentName) => {
-    this.state.subject.forEach(element => {
-      if (element.subjectName === searchSubjectName) {
-        element.student.forEach(elem =>{
-          if (elem.studentName === searchStudentName){
-            const i = this.state.subject.indexOf(element);
-            const j = this.state.subject[i].student.indexOf(elem);
-            this.state.subject[i].student[j].view = !this.state.subject[i].student[j].view;
-            this.setState(this.state.subject);
-          }
-        })
-      }
-    })
+    const subject = cloneDeep(this.state.subject);
+    const subj = subject.find(s => s.subjectName === searchSubjectName);
+
+    if(subj){
+      const student = subj.student.find(stud => stud.studentName === searchStudentName);
+      if(student) student.view = !student.view;
+    }
+
+    this.setState({subject});
   }
 
   render() {
     return (
       <div className="App">
         <Subject 
-          subject={this.state.subject[0].subjectName}
-          view={this.state.subject[0].view}
-          teacher={this.state.subject[0].teacherName}
-          studentName1={this.state.subject[0].student[0].studentName}
-          studentName2={this.state.subject[0].student[1].studentName}
-          studentName3={this.state.subject[0].student[2].studentName}
-          studentGrade1={this.state.subject[0].student[0].studentGrade}
-          studentGrade2={this.state.subject[0].student[1].studentGrade}
-          studentGrade3={this.state.subject[0].student[2].studentGrade}
-          studentGradeView1={this.state.subject[0].student[0].view}
-          studentGradeView2={this.state.subject[0].student[1].view}
-          studentGradeView3={this.state.subject[0].student[2].view}
-
-          onClickSubject={this.clickSubjectHandler.bind(this, this.state.subject[0].subjectName)}
-          onClickGrade1={this.clickGradeHandler.bind(this, this.state.subject[0].subjectName, this.state.subject[0].student[0].studentName)}
-          onClickGrade2={this.clickGradeHandler.bind(this, this.state.subject[0].subjectName, this.state.subject[0].student[1].studentName)}
-          onClickGrade3={this.clickGradeHandler.bind(this, this.state.subject[0].subjectName, this.state.subject[0].student[2].studentName)}
+          subject={this.state.subject[0]}
+          onClickSubject={this.clickSubjectHandler}
+          onClickGrade={this.clickGradeHandler}
         />
         <Subject 
-          subject={this.state.subject[1].subjectName}
-          view={this.state.subject[1].view}
-          teacher={this.state.subject[1].teacherName}
-          studentName1={this.state.subject[1].student[0].studentName}
-          studentName2={this.state.subject[1].student[1].studentName}
-          studentName3={this.state.subject[1].student[2].studentName}
-          studentGrade1={this.state.subject[1].student[0].studentGrade}
-          studentGrade2={this.state.subject[1].student[1].studentGrade}
-          studentGrade3={this.state.subject[1].student[2].studentGrade}
-          studentGradeView1={this.state.subject[1].student[0].view}
-          studentGradeView2={this.state.subject[1].student[1].view}
-          studentGradeView3={this.state.subject[1].student[2].view}
-
-          onClickSubject={this.clickSubjectHandler.bind(this, this.state.subject[1].subjectName)}
-          onClickGrade1={this.clickGradeHandler.bind(this, this.state.subject[1].subjectName, this.state.subject[1].student[0].studentName)}
-          onClickGrade2={this.clickGradeHandler.bind(this, this.state.subject[1].subjectName, this.state.subject[1].student[1].studentName)}
-          onClickGrade3={this.clickGradeHandler.bind(this, this.state.subject[1].subjectName, this.state.subject[1].student[2].studentName)}
+          subject={this.state.subject[1]}
+          onClickSubject={this.clickSubjectHandler}
+          onClickGrade={this.clickGradeHandler}
         />
       </div>
     );

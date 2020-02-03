@@ -5,25 +5,19 @@ import Student from './Student';
 
 import "./Styles.css"
 
-const subject = (props) => {
-    if(props.view){
+const subject = props => {
+    const {subjectName, view, teacherName, student} = props.subject;
+    const {onClickSubject, onClickGrade} = props;
+
+    if(view){
         return (
             <div className="Subject">
-                <h1 onClick={props.onClickSubject}>Asignatura: {props.subject}</h1>
-                <Teacher teacher={props.teacher}/>
+                <h1 onClick={() => onClickSubject(subjectName)}>Asignatura: {subjectName}</h1>
+                <Teacher teacher={teacherName}/>
                 <Student 
-                    studentName1={props.studentName1}
-                    studentName2={props.studentName2}
-                    studentName3={props.studentName3}
-                    studentGrade1={props.studentGrade1}
-                    studentGrade2={props.studentGrade2}
-                    studentGrade3={props.studentGrade3}
-                    studentGradeView1={props.studentGradeView1}
-                    studentGradeView2={props.studentGradeView2}
-                    studentGradeView3={props.studentGradeView3}
-                    onClickGrade1={props.onClickGrade1}
-                    onClickGrade2={props.onClickGrade2}
-                    onClickGrade3={props.onClickGrade3}
+                    student={student}
+                    subjectName={subjectName}
+                    onClickGrade={onClickGrade}
                 />
             </div>
         )
@@ -31,7 +25,7 @@ const subject = (props) => {
     else {
         return (
             <div className="Subject">
-                <h1 onClick = {props.onClickSubject}>Asignatura: {props.subject}</h1>
+                <h1 onClick={() => onClickSubject(subjectName)}>Asignatura: {subjectName}</h1>
             </div>
         )
     }
