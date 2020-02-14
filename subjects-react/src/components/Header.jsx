@@ -5,10 +5,11 @@ import "./styles.css";
 
 const Header = (props) => {
     const {onCurso, onNota} = props.onClick;
+    const state = props.state;
 
     return (
         <div className="header">
-            <FilCur onClick={onCurso}/>
+            <FilCur onClick={onCurso} buscar={props.buscar} state={state}/>
             <FilNota onClick={onNota}/>
         </div>
     )

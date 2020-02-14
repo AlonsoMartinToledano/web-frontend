@@ -8,6 +8,18 @@
     text-align: center;
 }
 
+.filterButtonSelected {
+    border: 1px solid black;
+    min-width: 100px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    text-align: center;
+    background-color: lightgrey;
+}
+
 .header {
     text-align: left;
     padding: 10px;

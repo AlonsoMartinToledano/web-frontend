@@ -11,6 +11,7 @@ class App extends Component {
     asignaturas: [...Asignaturas],
     curso: 0,
     nota: 0,
+    buscarAsignatura: null
   };
 
   onCursoClickHandler = (curso) => {
@@ -21,15 +22,18 @@ class App extends Component {
     this.setState({nota});
   }
 
+  buscarAsignaturaHandler(event){
+    const buscarAsignatura = event.target.value;
+    this.setState({buscarAsignatura});
+  }
+
   render() {
     return (
       <div className="App">
-        <Header onClick={ 
-            {
-              onCurso: this.onCursoClickHandler, 
-              onNota: this.onNotaClickHandler
-            }
-          } />
+        <Header onClick={{onCurso: this.onCursoClickHandler, onNota: this.onNotaClickHandler}}
+          buscar={(event) => this.buscarAsignaturaHandler(event)}
+          state={this.state}
+        />
       <Body data={this.state} />
       </div>
       

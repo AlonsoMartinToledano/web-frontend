@@ -23,8 +23,31 @@
     ]
   },
   {
-    "asignatura": "Estructura de Datos",
+    "asignatura": "Programacion II",
     "id": 2,
+    "curso": 1,
+    "profesor": "Alberto Valero",
+    "alumnos": [
+      {
+        "id": 1,
+        "nombre": "Juan Tamariz",
+        "nota": 10
+      },
+      {
+        "id": 2,
+        "nombre": "Ese del fondo",
+        "nota": 2
+      },
+      {
+        "id": 3,
+        "nombre": "Coronavirus",
+        "nota": 8
+      }
+    ]
+  },
+  {
+    "asignatura": "Estructura de Datos",
+    "id": 3,
     "curso": 1,
     "profesor": "Jose Emilio Torres",
     "alumnos": [
@@ -47,7 +70,7 @@
   },
   {
     "asignatura": "Java",
-    "id": 3,
+    "id": 4,
     "curso": 2,
     "profesor": "Jorge Comosellame",
     "alumnos": [
@@ -70,7 +93,7 @@
   },
   {
     "asignatura": "Backend",
-    "id": 4,
+    "id": 5,
     "curso": 3,
     "profesor": "Alberto Otravez",
     "alumnos": [

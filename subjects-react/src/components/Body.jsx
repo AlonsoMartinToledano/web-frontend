@@ -3,8 +3,10 @@ import Asignatura from "./Asignatura"
 
 const Body = (props) => {
     const asignaturas = props.data.asignaturas;
-    const filtered = props.data.curso === 0 ? asignaturas : asignaturas.filter( asig => props.data.curso === asig.curso);
-    
+    let filtered = props.data.curso === 0 ? asignaturas : asignaturas.filter( asig => props.data.curso === asig.curso);
+    if (props.data.buscarAsignatura != null){
+        filtered = filtered.filter(asig => asig.asignatura.includes(props.data.buscarAsignatura));
+    }
     return (
         <div>
             {
