@@ -1,0 +1,53 @@
+.StatusButton {
+    border: 1px solid black;
+    min-width: 100px;
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    text-align: center;
+}
+
+.StatusButtonSelected {
+    border: 1px solid black;
+    min-width: 100px;
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.TextFilter {
+    border: 1px solid black;
+    min-width: 100px;
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    text-align: center;
+}
+
+.DontJump {
+    display: inline-block;
+}
+
+.Character {
+    border: 1px solid black;
+    min-width: 20%;
+    display: inline-block;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    text-align: center;
+}
+
+.Name {
+    border: 1px solid grey;
+    box-shadow: 3px 3px 3px lightgrey;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 10px;
+}
+
