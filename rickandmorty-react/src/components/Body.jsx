@@ -7,7 +7,7 @@ const Body = (props) => {
     const {onBigCharacter} = props.onClick;
 
     let filtered = props.data.characters;
-    let big = props.data.characters;
+    let big;
 
     if (props.data.status === 1) {
         filtered = filtered.filter(char => char.status === "Alive");
@@ -21,7 +21,8 @@ const Body = (props) => {
     }
         
     if (props.data.bigCharacter != null) {
-        big = big.find(char => char.name === (props.data.bigCharacter));
+        big = props.data.characters.find(char => char.name === props.data.bigCharacter.name);
+        console.log(props.data.characters);
         console.log(props.data.bigCharacter);
         console.log(big);
     }
