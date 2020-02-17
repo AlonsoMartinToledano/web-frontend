@@ -27,10 +27,6 @@ class App extends Component {
     this.setState({bigCharacter});
   }
 
-  onXHandler = (bigCharacter) => {
-    this.setState({bigCharacter});
-  }
-
   render() {
     return (
       <div className="App">
@@ -38,7 +34,7 @@ class App extends Component {
           textFilter={(event) => this.onTextFilterHandler(event)}
           data={this.state}
         />
-        <Body onClick={{onBigCharacter: this.onBigCharacterHandler, onX: this.onXHandler}}
+        <Body onClick={{onBigCharacter: this.onBigCharacterHandler}}
           data={this.state}
         />
       </div>

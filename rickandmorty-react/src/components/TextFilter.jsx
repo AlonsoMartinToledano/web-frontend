@@ -5,7 +5,7 @@ const TextFilter = (props) => {
     const {textFilter} = props;
 
     return (
-        <div className="DontJump">
+        <div>
             <input className="TextFilter" type="text" onChange={textFilter} />
         </div>
     )

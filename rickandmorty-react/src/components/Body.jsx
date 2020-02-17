@@ -7,7 +7,7 @@ const Body = (props) => {
     const {onBigCharacter} = props.onClick;
 
     let filtered = props.data.characters;
-    let big;
+//    let big;
 
     if (props.data.status === 1) {
         filtered = filtered.filter(char => char.status === "Alive");
@@ -19,25 +19,10 @@ const Body = (props) => {
     if (props.data.textFilter != null) {
         filtered = filtered.filter(char => char.name.includes(props.data.textFilter));
     }
-        
-    if (props.data.bigCharacter != null) {
-        big = props.data.characters.find(char => char.name === props.data.bigCharacter.name);
-        console.log(props.data.characters);
-        console.log(props.data.bigCharacter);
-        console.log(big);
-    }
 
     return (
-        <div>
-            {props.data.bigCharacter === null ?
-                <div>
-                    {filtered.map(obj => <Characters onBigCharacter={onBigCharacter} image={obj.image} name={obj.name} status={obj.status} gender={obj.gender} key={obj.id}/>)}
-                </div> : 
-            <div>
-                <Characters onBigCharacter={onBigCharacter} image={big.image} name={big.name} status={big.status} gender={big.gender} key={big.id}/>)}
-            </div>
-            }
-            
+        <div className="Body">
+            {filtered.map(obj => <Characters onBigCharacter={onBigCharacter} image={obj.image} name={obj.name} status={obj.status} gender={obj.gender} key={obj.id}/>)}
         </div>
     )
 }
