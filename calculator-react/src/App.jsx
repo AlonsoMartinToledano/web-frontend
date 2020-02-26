@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Display from "./components/Display";
+import Header from "./components/Header";
 import Buttons from "./components/Buttons";
 
 class App extends Component {
@@ -34,7 +34,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Display data={this.state} />
+        <Header data={this.state} />
         <Buttons data={this.state} onClick={{onButton: this.onButtonHandler, onEqual: this.onEqualHandler, onC: this.onCHandler, onDelete: this.onDeleteHandler}} />
       </div>
     );

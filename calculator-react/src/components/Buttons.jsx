@@ -28,6 +28,7 @@ const Buttons = (props) => {
                 <div className="ButtonOperation" onClick={ () => onButton("+") }>+</div>
                 <div className="ButtonEqual" onClick={onEqual}>=</div>
             </div>
+            
         </div>
     )
 }
