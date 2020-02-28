@@ -6,11 +6,11 @@ const Header = (props) => {
     const {onMode} = props.onClick;
     return (
         <div className="Header">
-            <div className="ChangeButton" onClick={onMode}>↺</div>
+            <div className="ChangeButton" onClick={onMode}>Mode</div>
                 <div className="Display">
-                    <div className="Result">{data.result2}</div>
-                    <div className="Result">{data.result1}</div>
-                    <div className="Operation">{data.operation}</div>
+                    <div className="Result">{data.result[2]}</div>
+                    <div className="Result">{data.result[1]}</div>
+                    <div className="Operation">{data.result[0]}</div>
                 </div>
         </div>       
     )

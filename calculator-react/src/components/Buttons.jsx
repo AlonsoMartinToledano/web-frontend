@@ -22,7 +22,7 @@ const Buttons = (props) => {
         <div className="Buttons">
             {scientific}
             <div className="ButtonsRow">
-                <div className="ButtonOperation" onClick={ () => onC("") }>C</div>
+                <div className="ButtonOperation" onClick={onC}>C</div>
                 <div className="ButtonOperation" onClick={onDelete}>⬅</div>
                 <div className="ButtonOperation" onClick={ () => onButton("/") }>/</div>
                 <div className="Button" onClick={ () => onButton("7") }>7</div>

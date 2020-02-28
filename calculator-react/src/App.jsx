@@ -6,54 +6,53 @@ import Calculator from "./components/Calculator"
 class App extends Component {
 
   state = {
-    operation: "",
-    result1: "",
-    result2: "",
+    result: [""],
     mode: 0
   }
 
   onButtonHandler = (newOperation) => {
-    const oldOperation = this.state.operation;
-    const operation = oldOperation + newOperation;
-    this.setState({operation});
+    const result = this.state.result;
+    result[0] = result[0] + newOperation;
+    this.setState({result});
   }
 
   onEqualHandler = () => {
-    let operation = this.state.operation;
+    const result = this.state.result;
+    result[2] = result[1];
+    result[1] = result[0];
 
-    this.setState({result2: this.state.result1});
-    this.setState({result1: this.state.operation});
-
-    if (this.state.operation.includes("sin(")) {
-      operation = operation.replace("sin(", '');
-      operation = operation.replace(")", "");
-      operation = Math.sin(operation);
+    if (result[0].includes("sin(")) {
+      result[0].replace("sin(", '');
+      result[0].replace(")", "");
+      result[0] = Math.sin(result[0]);
     }
-    else if (operation.includes("cos(")) {
-      operation = operation.replace("cos(", '');
-      operation = operation.replace(")", "");
-      operation = Math.cos(operation);
-    }
-    else if (operation.includes("tan(")) {
-      operation = operation.replace("tan(", '');
-      operation = operation.replace(")", "");
-      operation = Math.tan(operation);
-    }
+    // else if (operation.includes("cos(")) {
+    //   operation = operation.replace("cos(", '');
+    //   operation = operation.replace(")", "");
+    //   operation = Math.cos(operation);
+    // }
+    // else if (operation.includes("tan(")) {
+    //   operation = operation.replace("tan(", '');
+    //   operation = operation.replace(")", "");
+    //   operation = Math.tan(operation);
+    // }
     else {
-      operation = eval(this.state.operation);
+      result[0] = eval(this.state.result[0]);
     }
 
-    this.setState({operation});
+    this.setState({result});
   }
 
-  onCHandler = (operation) => {
-    this.setState({operation});
+  onCHandler = () => {
+    const result = this.state.result;
+    result[0] = "";
+    this.setState({result});
   }
 
   onDeleteHandler = () => {
-    const oldOperation = this.state.operation;
-    const operation = oldOperation.slice(0, -1);
-    this.setState({operation});
+    const result = this.state.result;
+    result[0] = result[0].slice(0, -1);
+    this.setState({result});
   }
 
   onModeHandler = () => {
