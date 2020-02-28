@@ -18,6 +18,7 @@ class App extends Component {
 
   onEqualHandler = () => {
     const result = this.state.result;
+
     result[2] = result[1];
     result[1] = result[0];
 
