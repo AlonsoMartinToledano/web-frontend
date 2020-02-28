@@ -3,9 +3,24 @@ import "./styles.css";
 
 const Buttons = (props) => {
     const {onButton, onEqual, onC, onDelete} = props.onClick;
+    const {data} = props;
+
+    let scientific = <div></div>;
+
+    if(data.mode){
+        scientific =
+            <div className="ButtonsScientific">
+                <div className="ButtonOperation" onClick={ () => onButton("sin(") }>sin(</div>
+                <div className="ButtonOperation" onClick={ () => onButton("cos(") }>cos(</div>
+                <div className="ButtonOperation" onClick={ () => onButton("tan(") }>tan(</div>
+                <div className="ButtonOperation" onClick={ () => onButton("(") }>(</div>
+                <div className="ButtonOperation" onClick={ () => onButton(")") }>)</div>
+            </div>
+    }
 
     return (
         <div className="Buttons">
+            {scientific}
             <div className="ButtonsRow">
                 <div className="ButtonOperation" onClick={ () => onC("") }>C</div>
                 <div className="ButtonOperation" onClick={onDelete}>⬅</div>
@@ -23,12 +38,11 @@ const Buttons = (props) => {
                 <div className="Button" onClick={ () => onButton(".") }>.</div>
             </div>
             <div className="ButtonsColumn">
-                <div className="ButtonOperation" onClick={ () => onButton("*") }>X</div>
+                <div className="ButtonOperation" onClick={ () => onButton("*") }>x</div>
                 <div className="ButtonOperation" onClick={ () => onButton("-") }>-</div>
                 <div className="ButtonOperation" onClick={ () => onButton("+") }>+</div>
                 <div className="ButtonEqual" onClick={onEqual}>=</div>
             </div>
-            
         </div>
     )
 }
