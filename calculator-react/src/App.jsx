@@ -22,20 +22,20 @@ class App extends Component {
     result[1] = result[0];
 
     if (result[0].includes("sin(")) {
-      result[0].replace("sin(", '');
-      result[0].replace(")", "");
+      result[0] = result[0].replace("sin(", '');
+      result[0] = result[0].replace(")", "");
       result[0] = Math.sin(result[0]);
     }
-    // else if (operation.includes("cos(")) {
-    //   operation = operation.replace("cos(", '');
-    //   operation = operation.replace(")", "");
-    //   operation = Math.cos(operation);
-    // }
-    // else if (operation.includes("tan(")) {
-    //   operation = operation.replace("tan(", '');
-    //   operation = operation.replace(")", "");
-    //   operation = Math.tan(operation);
-    // }
+    else if (result[0].includes("cos(")) {
+      result[0] = result[0].replace("cos(", '');
+      result[0] = result[0].replace(")", "");
+      result[0] = Math.cos(result[0]);
+    }
+    else if (result[0].includes("tan(")) {
+      result[0] = result[0].replace("tan(", '');
+      result[0] = result[0].replace(")", "");
+      result[0] = Math.tan(result[0]);
+    }
     else {
       result[0] = eval(this.state.result[0]);
     }
