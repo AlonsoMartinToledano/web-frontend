@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import Characters from "./assets/data";
 import Header from "./components/Header";
 import Body from "./components/Body";
 
 class App extends Component {
 
   state = {
-    characters: [...Characters],
     status: 0,
     textFilter: null,
     bigCharacter: null
