@@ -1,0 +1,132 @@
+.Header {
+    display: flex;
+    background-color: #292929;
+    justify-content: center;
+}
+
+.HeaderSearch {
+    display: flex;
+    justify-content: center;
+
+    width: 95%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.YouTubeImg {
+    display: flex;
+    justify-self: flex-start;
+    height: 50px;
+    width: 50px;
+    object-fit: contain;
+}
+
+.YouTubeImg:hover {
+    cursor: pointer;
+}
+
+.Search {
+    background-color: #191919;
+    border: 2px solid #191919;
+    color: white;
+    font-size: 17px;
+    padding-left: 10px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.MagnifyingGlass {
+    padding-top: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #363636;
+}
+
+.MagnifyingGlass:hover {
+    cursor: pointer;
+    background-color: #191919;
+}
+
+.Body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.ThumbnailGrid {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    height: 267px;
+    width: 340px;
+    padding: 17px
+}
+
+.Thumbnail {
+    height: 267px;
+    width: 350px;
+}
+
+.ImageThumbnail {
+    width: 350px;
+    height: 190px;
+    object-fit: cover
+}
+
+.ImageThumbnail:hover {
+    cursor: pointer;
+}
+
+.Description {
+    color: grey;
+}
+
+.BodyPlay {
+    display: flex;
+    flex-direction: row;
+}
+
+.BodyVideo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 75%;
+    padding-top: 20px;
+}
+.VideoContent {
+    width: 90%;
+}
+
+.Video {
+    width: 1280px;
+    height: 720px;
+}
+
+.Right {
+    width: 20%;
+}
+
+.TitleVideo {
+    font-size: 25px;
+    border-bottom: 2px solid white;
+}
+
+.DescriptionVideo {
+    color: grey;
+    font-size: 18px;
+    padding-top: 15px;
+}
+
+.Back {
+    color: grey;
+    font-size: 35px;
+    padding-top: 10px;
+    padding-left: 10px;
+    width: 2%;
+}
+
+.Back:hover {
+    cursor: pointer;
+}
