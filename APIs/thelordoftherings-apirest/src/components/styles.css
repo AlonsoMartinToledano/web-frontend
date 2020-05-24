@@ -1,0 +1,71 @@
+.Authentication {
+    display: flex;
+}
+
+.Button {
+    display: flex;
+    justify-content: center;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 110px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.Button:hover {
+    cursor: pointer;
+}
+
+.ButtonSelected {
+    display: flex;
+    justify-content: center;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 110px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+    background-color: lightgrey;
+}
+
+.ButtonSelected:hover {
+    cursor: pointer;
+}
+
+.Header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 60px;
+    border-bottom: 2px solid black;
+}
+
+.InputToken {
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 1.2em;
+    width: 170px;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.Item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+    font-size: 1.2em;
+    width: 300px;
+    min-height: 40px;
+    margin: 30px;
+    padding: 5px;
+    box-shadow: 3px 3px 3px grey;
+}
