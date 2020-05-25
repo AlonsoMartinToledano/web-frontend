@@ -1,4 +1,4 @@
-# Rick And Morty - GraphQL
+# Rick And Morty API - GraphQL
 
 ## :gear: Setup
 1. Install npm
