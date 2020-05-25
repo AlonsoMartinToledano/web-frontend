@@ -12,7 +12,7 @@ npm install @apollo/client
 
 3. Install GraphQL
 ```
-npm install --save graphql
+npm install graphql
 ```
 
 4. Start the app
