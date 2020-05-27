@@ -41,7 +41,7 @@ function App() {
 
   let content;
   if (mode === 0) {
-    if (localStorage.getItem("token") === "null") {
+    if (!localStorage.getItem("token")) {
       content = <div className="Auth">
         <input id="token" placeholder="Token" className="Input"/>
         <div className="Button" onClick={() => {localStorage.setItem("token", (document.getElementById("token").value)); setMode(2);}}>Authenticate</div>
@@ -51,7 +51,7 @@ function App() {
     }
   } else if (mode === 1) {
     content = <div className="Auth">
-      <div className="Button" onClick={() => {localStorage.setItem("token", (null)); setMode(0);}}>Retry</div>
+      <div className="Button" onClick={() => {localStorage.removeItem("token"); setMode(0);}}>Retry</div>
     </div>
   } else if (mode === 2) {
     content = <Authentication />

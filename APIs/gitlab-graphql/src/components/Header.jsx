@@ -14,7 +14,7 @@ const Header = () => {
                 <input id="search" placeholder="Repository" className="Input"/>
                 <div className="Button" onClick={() => {context.repositoryName.set(document.getElementById("search").value); context.bodyMode.set(2);}}>Search</div>
             </div>
-            <div className="Button" onClick={() => {localStorage.setItem("token", (null)); context.bodyMode.set(null); context.mode.set(0);}}>Log Out</div>
+            <div className="Button" onClick={() => {localStorage.removeItem("token"); context.bodyMode.set(null); context.mode.set(0);}}>Log Out</div>
         </div>
     )
 }
