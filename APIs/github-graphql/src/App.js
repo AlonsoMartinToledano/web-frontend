@@ -14,7 +14,7 @@ const httpLink = new HttpLink ({
 });
 
 function App() {
-  const [token, setToken] = useState(null); //52ff81010c8365829bd9ae023ed137410e994c3d
+  //6069aa358d57395a4c9b9cd7995e11685ddb9fce
   const [mode, setMode] = useState(0);
   const [bodyMode, setBodyMode] = useState(null);
   const [searchUser, setSearchUser] = useState(null);
@@ -33,7 +33,7 @@ function App() {
     return {
       headers: {
         ...headers,
-        authorization: token ? `Bearer ${token}` : "",
+        authorization: localStorage.getItem("token") ? `Bearer ${localStorage.getItem("token")}` : "",
       },
     };
   });
@@ -45,13 +45,17 @@ function App() {
 
   let content;
   if (mode === 0) {
-    content = <div className="Auth">
-      <input id="token" placeholder="Token" className="Input"/>
-      <div className="Button" onClick={() => {setToken(document.getElementById("token").value); setMode(2);}}>Authenticate</div>
-    </div>
+    if (localStorage.getItem("token") === "null") {
+      content = <div className="Auth">
+        <input id="token" placeholder="Token" className="Input"/>
+        <div className="Button" onClick={() => {localStorage.setItem("token", (document.getElementById("token").value)); setMode(2);}}>Authenticate</div>
+      </div>
+    } else {
+      setMode(3);
+    }
   } else if (mode === 1) {
     content = <div className="Auth">
-      <div className="Button" onClick={() => {setToken(null); setMode(0);}}>Retry</div>
+      <div className="Button" onClick={() => {localStorage.setItem("token", (null)); setMode(0);}}>Retry</div>
     </div>
   } else if (mode === 2) {
     content = <Authentication />
