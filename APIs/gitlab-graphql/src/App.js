@@ -45,7 +45,6 @@ function App() {
       content = <div className="Auth">
         <input id="token" placeholder="Token" className="Input"/>
         <div className="Button" onClick={() => {localStorage.setItem("token", (document.getElementById("token").value)); setMode(2);}}>Authenticate</div>
-        CUKzXxx1nEe7_Dq5-SSj
       </div>
     } else {
       setMode(3);
