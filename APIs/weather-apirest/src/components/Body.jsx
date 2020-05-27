@@ -5,7 +5,7 @@ import Place from "./Place";
 import "./styles.css";
 
 const Body = props => {
-    const {tokenMapBox, tokenOpenWeather} = props;
+    const {setMode} = props;
 
     const [place, setPlace] = useState(null);
     const [placeResults, setPlaceResults] = useState(null);
@@ -18,7 +18,7 @@ const Body = props => {
 
     useEffect(() => {
         if (place) {
-            axios.get(`${baseURLMapBox}${place}.json?access_token=${tokenMapBox}`).then(response => {
+            axios.get(`${baseURLMapBox}${place}.json?access_token=${localStorage.getItem("tokenMapBox")}`).then(response => {
                 setPlaceResults(response.data.features);
             })
             return () => {}
@@ -27,7 +27,7 @@ const Body = props => {
 
     useEffect(() => {
         if (coordinates) {
-            axios.get(`${baseURLOpenWeather}?lat=${coordinates[1]}&lon=${coordinates[0]}&appid=${tokenOpenWeather}`).then(response => {
+            axios.get(`${baseURLOpenWeather}?lat=${coordinates[1]}&lon=${coordinates[0]}&appid=${localStorage.getItem("tokenOpenWeather")}`).then(response => {
                 setPlaceDetails(response.data.current);
             })
             return () => {}
@@ -55,6 +55,7 @@ const Body = props => {
 
     return (
         <div className="Body">
+            <div className="Button" onClick={() => {localStorage.removeItem("tokenOpenWeather"); localStorage.removeItem("tokenMapBox"); setMode(0)}}>Log Out</div>
             <div className="Search">
                 <input id="search" placeholder="Place to search" className="Input"/>
                 <div className="Button" onClick={() => {setPlace(document.getElementById("search").value); setPlaceDetails(null);}}>Search</div>
