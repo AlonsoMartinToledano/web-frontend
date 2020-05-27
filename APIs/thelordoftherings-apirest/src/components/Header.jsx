@@ -36,7 +36,7 @@ const Header = () => {
             <div className={context.mode.get === 3 ? "ButtonSelected" : "Button"} onClick={() => context.mode.set(3)}>Movies</div>
             <div className={context.mode.get === 4 ? "ButtonSelected" : "Button"} onClick={() => context.mode.set(4)}>Characters</div>
             <div className={context.mode.get === 5 ? "ButtonSelected" : "Button"} onClick={() => context.mode.set(5)}>Quotes</div>
-            <div className="Button" onClick={() => {localStorage.setItem("token", (null)); context.mode.set(0);}}>Log Out</div>
+            <div className="Button" onClick={() => {localStorage.removeItem("token"); context.mode.set(0);}}>Log Out</div>
         </div>
     )
 }

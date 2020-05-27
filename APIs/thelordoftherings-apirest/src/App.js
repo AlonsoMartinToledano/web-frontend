@@ -14,7 +14,7 @@ function App() {
   const [button, setButton] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem("token") !== "null") {
+    if (localStorage.getItem("token")) {
       const endpoint = "https://the-one-api.herokuapp.com/v1/movie";
 
       axios.get(endpoint, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` }}).then(response => {
@@ -33,14 +33,14 @@ function App() {
   }
 
   let content;
-  if (localStorage.getItem("token") === "null") {
+  if (!localStorage.getItem("token")) {
     content = <div className="Authentication">
       <input id="token" placeholder="Token" className="InputToken"/>
       <div className="Button" onClick={() => {localStorage.setItem("token", (document.getElementById("token").value)); setError(null); setButton(!button);}}>Authenticate</div>
     </div>
   } else if (error === 401) {
     content = <div className="Authentication">
-      <div className="Button" onClick={() => {localStorage.setItem("token", (null)); setButton(!button);}}>Retry</div>
+      <div className="Button" onClick={() => {localStorage.removeItem("token"); setButton(!button);}}>Retry</div>
     </div>
   }
 
