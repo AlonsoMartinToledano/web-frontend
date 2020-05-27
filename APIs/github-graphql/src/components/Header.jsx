@@ -16,7 +16,7 @@ const Header = () => {
                 <div className="Button" onClick={() => {context.searchUser.set(document.getElementById("search").value); context.bodyMode.set(3);}}>Search</div>
             </div>
             <div className={context.bodyMode.get === 4 ? "ButtonSelected" : "Button"} onClick={() => context.bodyMode.set(4)}>Create Repository</div>
-            <div className="Button" onClick={() => {localStorage.setItem("token", (null)); context.bodyMode.set(null); context.mode.set(0);}}>Log Out</div>
+            <div className="Button" onClick={() => {localStorage.removeItem("token"); context.bodyMode.set(null); context.mode.set(0);}}>Log Out</div>
         </div>
     )
 }

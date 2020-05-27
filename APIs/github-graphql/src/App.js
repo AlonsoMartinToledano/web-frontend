@@ -14,7 +14,7 @@ const httpLink = new HttpLink ({
 });
 
 function App() {
-  //6069aa358d57395a4c9b9cd7995e11685ddb9fce
+  //251b0d8f8db9bcca836757eeb91afdba204e73ff
   const [mode, setMode] = useState(0);
   const [bodyMode, setBodyMode] = useState(null);
   const [searchUser, setSearchUser] = useState(null);
@@ -45,7 +45,7 @@ function App() {
 
   let content;
   if (mode === 0) {
-    if (localStorage.getItem("token") === "null") {
+    if (!localStorage.getItem("token")) {
       content = <div className="Auth">
         <input id="token" placeholder="Token" className="Input"/>
         <div className="Button" onClick={() => {localStorage.setItem("token", (document.getElementById("token").value)); setMode(2);}}>Authenticate</div>
@@ -55,7 +55,7 @@ function App() {
     }
   } else if (mode === 1) {
     content = <div className="Auth">
-      <div className="Button" onClick={() => {localStorage.setItem("token", (null)); setMode(0);}}>Retry</div>
+      <div className="Button" onClick={() => {localStorage.removeItem("token"); setMode(0);}}>Retry</div>
     </div>
   } else if (mode === 2) {
     content = <Authentication />
